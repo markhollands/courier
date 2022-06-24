@@ -1,7 +1,6 @@
 package datamodel.discounts
 
 import datamodel.DiscountCode
-import datamodel.PackageQuote
 
 class Offer001: DiscountCode {
 

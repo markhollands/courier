@@ -12,14 +12,3 @@ data class PackageQuote(val packageId: String, val weight: Int, val distance: In
     }
 }
 
-data class PackageCost(val packageId: String, val discount: Int, val totalCost: Int) {
-    override fun toString(): String {
-        return "$packageId $discount $totalCost"
-    }
-}
-
-data class Delivery(val packageQuote: PackageQuote, val packageCost: PackageCost) {
-    override fun toString(): String {
-        return "${packageCost.packageId} ${packageCost.discount} ${packageCost.totalCost} ${packageQuote.deliveryEstimate?.round(2)}"
-    }
-}
