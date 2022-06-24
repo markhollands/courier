@@ -1,6 +1,5 @@
 import datamodel.*
 import util.permutations
-import util.round
 import util.roundDown
 import java.lang.IndexOutOfBoundsException
 import java.lang.NumberFormatException
@@ -76,7 +75,7 @@ class OrderHandler {
     fun generateOrderWithDeliveryParams(inputs: List<String>): OrderAndDeliveryParams? {
 
         try {
-            val orderParams = inputs.subList(0, inputs.size - 2)
+            val orderParams = inputs.subList(0, inputs.size - 3)
             val maxCarriableWeight = inputs.last().toInt()
             val maxSpeed = inputs[inputs.size - 2].toInt()
             val numberOfVehicles = inputs[inputs.size - 3].toInt()
