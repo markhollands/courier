@@ -13,11 +13,11 @@ class Offer001: DiscountCode {
     override val discountPercentage: Float = 0.1f
 
     override fun testApplicability(packageQuote: PackageQuote): Boolean {
-
+        return false
     }
 
     override fun calculateDiscount(packageQuote: PackageQuote): Int {
-        TODO("Not yet implemented")
+        return 0
     }
 
 }

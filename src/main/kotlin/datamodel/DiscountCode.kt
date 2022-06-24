@@ -10,7 +10,8 @@ interface DiscountCode {
     val discountPercentage: Float
 
     fun testApplicability(packageQuote: PackageQuote): Boolean {
-        
+
+        // TODO convert these into range checks
         maxDistance?.let { _maxDistance ->
             if (packageQuote.distance > _maxDistance) {
                  return false
