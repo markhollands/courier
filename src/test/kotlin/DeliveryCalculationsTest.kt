@@ -5,7 +5,7 @@ import datamodel.PackageQuote
 import org.junit.Assert
 import org.junit.Test
 
-class TestDeliveryCalculations {
+class DeliveryCalculationsTest {
 
     @Test
     fun testDeliveryCalculations() {
