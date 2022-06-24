@@ -24,7 +24,7 @@ class TestOrderCalculations {
     }
 
     @Test
-    fun testPackageCalculations() {
+    fun testPackageCalculationsNotEligible() {
 
         val order = Order(100, listOf(PackageQuote("PKG1", 5, 5, "OFR001")))
         val item = order.packages.first()
@@ -41,5 +41,35 @@ class TestOrderCalculations {
         val cost = order.calculatePackageCost(order.packages.first())
         assertEquals("Incorrect discount", 0, cost.discount)
         assertEquals("Incorrect total cost", 175, cost.totalCost)
+    }
+
+    @Test
+    fun testPackageCalculationsValidCode() {
+
+        val order = Order(100, listOf(PackageQuote("PKG1", 100, 100, "OFR001")))
+        val item = order.packages.first()
+        val cost = order.calculatePackageCost(item)
+        assertEquals("Incorrect discount", 160, cost.discount)
+        assertEquals("Incorrect total cost", 1440, cost.totalCost)
+    }
+
+
+    @Test
+    fun testPackageCalculationsValidCode3() {
+
+        val order = Order(100, listOf(PackageQuote("PKG3", 10, 100, "OFR003")))
+        val item = order.packages.first()
+        val cost = order.calculatePackageCost(item)
+        assertEquals("Incorrect discount", 35, cost.discount)
+        assertEquals("Incorrect total cost", 665, cost.totalCost)
+    }
+
+    @Test
+    fun testNonsensicalInputs() {
+        val order = Order(100, listOf(PackageQuote("PKG3", -10, -5, "OFR003")))
+        val item = order.packages.first()
+        val cost = order.calculatePackageCost(item)
+        assertEquals("Incorrect discount", 0, cost.discount)
+        assertEquals("Incorrect total cost", -25, cost.totalCost)
     }
 }

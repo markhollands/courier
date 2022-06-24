@@ -11,13 +11,4 @@ class Offer001: DiscountCode {
     override val maxWeight: Int? = 200
     override val minWeight: Int? = 70
     override val discountPercentage: Float = 0.1f
-
-    override fun testApplicability(packageQuote: PackageQuote): Boolean {
-        return false
-    }
-
-    override fun calculateDiscount(packageQuote: PackageQuote): Int {
-        return 0
-    }
-
 }

@@ -12,3 +12,7 @@ data class Order(val baseDeliveryCost: Int, val packages: List<PackageQuote>) {
     private val weightMultiplier = 10
     private fun calculateTotalPrice(packageQuote: PackageQuote): Int = baseDeliveryCost + (packageQuote.weight * weightMultiplier) + (packageQuote.distance * 5)
 }
+
+data class DeliveryParams(val numberOfVehicles: Int, val maxSpeed: Int, val maxCarriableWeight: Int)
+
+data class OrderAndDeliveryParams(val order: Order, val deliveryParams: DeliveryParams)

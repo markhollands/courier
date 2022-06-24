@@ -9,34 +9,21 @@ interface DiscountCode {
     val minWeight: Int?
     val discountPercentage: Float
 
-    fun testApplicability(packageQuote: PackageQuote): Boolean {
+    fun testApplicability(distance: Int, weight: Int): Boolean {
 
-        // TODO convert these into range checks
-        maxDistance?.let { _maxDistance ->
-            if (packageQuote.distance > _maxDistance) {
-                 return false
-            }
+        if (maxDistance != null && distance > maxDistance!!) {
+             return false
+        }
+        if (minDistance != null && distance < minDistance!!) {
+            return false
+        }
+        if (maxWeight != null && weight > maxWeight!!) {
+            return false
+        }
+        if (minWeight != null && weight < minWeight!!) {
+            return false
         }
 
-        minDistance?.let { _minDistance ->
-            if (packageQuote.distance < _minDistance) {
-                return false
-            }
-        }
-
-        maxWeight?.let { _maxWeight ->
-            if (packageQuote.weight > _maxWeight) {
-                return false
-            }
-        }
-
-        minWeight?.let { _minWeight ->
-            if (packageQuote.weight < _minWeight) {
-                return false
-            }
-        }
         return true
     }
-
-    fun calculateDiscount(packageQuote: PackageQuote): Int
 }
