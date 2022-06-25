@@ -1,7 +1,5 @@
 package datamodel
 
-import util.round
-
 data class PackageQuote(val packageId: String, val weight: Int, val distance: Int, var discountCodeText: String, var deliveryEstimate: Double? = null) {
     val discount: DiscountCode?
 

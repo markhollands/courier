@@ -8,7 +8,7 @@ class OrderCreationTest {
     fun testOrderCreation() {
 
         val inputs = "100 3 PKG1 5 5 OFR001 PKG2 15 5 OFR002 PKG3 10 100 OFR003"
-        val order = OrderHandler().generateOrder(inputs.split(" "))
+        val order = CommandLineHandler.generateOrder(inputs.split(" "))
         assertNotNull("Order is null", order)
     }
 
@@ -16,7 +16,7 @@ class OrderCreationTest {
     fun testOrderCreationMissingArgument() {
 
         val inputs = "100 3 PKG1 5 5 OFR001 PKG2 15 5 OFR002 PKG3 10 100"
-        val order = OrderHandler().generateOrder(inputs.split(" "))
+        val order = CommandLineHandler.generateOrder(inputs.split(" "))
         assertNull("Order is not null", order)
     }
 
@@ -24,7 +24,7 @@ class OrderCreationTest {
     fun testOrderCreationInvalidArgument() {
 
         val inputs = "100 3 PKG1 5 5 OFR001 PKG2 15 5.5 OFR002 PKG3 10 100"
-        val order = OrderHandler().generateOrder(inputs.split(" "))
+        val order = CommandLineHandler.generateOrder(inputs.split(" "))
         assertNull("Order is not null", order)
     }
 
@@ -32,7 +32,7 @@ class OrderCreationTest {
     fun testOrderCreationNoArgument() {
 
         val inputs = ""
-        val order = OrderHandler().generateOrder(inputs.split(" "))
+        val order = CommandLineHandler.generateOrder(inputs.split(" "))
         assertNull("Order is not null", order)
     }
 }

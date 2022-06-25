@@ -15,7 +15,7 @@ class OrderCalculationsTest {
             PackageQuote("PKG3", 10, 100, "OFR003"),
             ))
 
-        val costs = OrderHandler().processOrder(order)
+        val costs = OrderHandler.processOrder(order)
 
         assertEquals("Incorrect number of costs", 3, costs.size)
         assertEquals("Incorrect cost value", "PKG1 0 175", costs[0].toString())

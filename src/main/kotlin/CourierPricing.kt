@@ -2,11 +2,10 @@ import util.otherwise
 
 fun main(args: Array<String>) {
 
-    val calculator = OrderHandler()
-    val order = calculator.generateOrder(args.toList())
+    val order = CommandLineHandler.generateOrder(args.toList())
 
     order?.let { _order ->
-        val outputs = calculator.processOrder(_order)
+        val outputs = OrderHandler.processOrder(_order)
         outputs.forEach { output -> println(output) }
     }.otherwise {
         println("To run the courier pricing application :")
